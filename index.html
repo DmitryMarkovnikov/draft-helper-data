@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>draft-helper</title>
+<meta name="description" content="draft-helper is a mobile companion for ranked champion select: it ranks your own champion pool against the lane opponent and the enemy team, and shows runes, spells and item builds. Offline, no account, no player tracking.">
+<style>
+  :root { color-scheme: light dark; --bg:#f7f7fb; --fg:#1b1b23; --muted:#5d5d6d; --card:#ffffff; --line:#e3e3ec; --accent:#4b5a91; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#12121a; --fg:#ececf4; --muted:#a3a3b5; --card:#1c1c27; --line:#2b2b3a; --accent:#8b9be0; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.25rem; margin: 36px 0 12px; }
+  p { margin: 0 0 12px; }
+  .tagline { color: var(--muted); font-size: 1.05rem; margin-bottom: 24px; }
+  .shots { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0 8px; }
+  .shots figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px; }
+  .shots img { width:100%; height:auto; border-radius:8px; display:block; }
+  .shots figcaption { font-size:.85rem; color:var(--muted); text-align:center; padding-top:6px; }
+  ul { padding-left: 20px; } li { margin-bottom: 6px; }
+  code { background: var(--card); border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:.9em; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .muted { color: var(--muted); font-size:.92rem; }
+  a { color: var(--accent); }
+  footer { margin-top: 40px; color: var(--muted); font-size:.88rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>draft-helper</h1>
+  <p class="tagline">A mobile companion for ranked champion select. Your own champion pool, the lane opponent, the enemy team: three taps to a pick.</p>
+
+  <div class="shots">
+    <figure><img src="img/home.png" alt="Home screen with two role buttons"><figcaption>Pick your role</figcaption></figure>
+    <figure><img src="img/ranking.png" alt="Ranking of the player's pool against the chosen opponent"><figcaption>Your pool vs the opponent</figcaption></figure>
+    <figure><img src="img/card.png" alt="Matchup card with rune page, spells and starting items"><figcaption>Runes, spells, items</figcaption></figure>
+    <figure><img src="img/team.png" alt="Build adapted to the enemy team"><figcaption>Build for the enemy team</figcaption></figure>
+  </div>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>You set two roles and 2–5 champions per role once. During champion select you tap your role, the enemy laner, and get your pool ranked by matchup win rate, with primary and backup picks.</li>
+    <li>Blind pick when the opponent is not locked yet; banned champions can be marked in two taps and drop out of the pool and the opponent list.</li>
+    <li>A matchup card shows the rune page laid out like the client, summoner spells, starting items, first item and boots.</li>
+    <li>Enter the rest of the enemy team and the build adapts: anti-heal, armor or magic resist, boots, with a one-line reason for every situational item. Your pool is re-ranked against the whole composition.</li>
+    <li>Everything works offline. Data packages are downloaded from this site and verified by checksum.</li>
+  </ul>
+
+  <h2>Where the data comes from</h2>
+  <p>Statistics are aggregated from Ranked Solo/Duo matches on EUW in the Gold bracket, collected through the Riot Games API (<code>league-v4</code> ladder entries, <code>match-v5</code> matches and timelines). Champion, item, rune and spell names and icons come from Data Dragon.</p>
+  <p>Only aggregates are published: win rates and game counts per champion, per lane matchup and per enemy champion, the most played rune pages, spell pairs and item builds. The packages in <a href="packages/index.json">packages/index.json</a> contain no player identifiers, no match identifiers and no per-player data.</p>
+
+  <h2>What it does not do</h2>
+  <ul>
+    <li>No player lookup, no match history, no live game data, no information about the people in your lobby.</li>
+    <li>No tracking of enemy ability or summoner spell cooldowns during the game.</li>
+    <li>No account, no login, no advertising, no in-app purchases.</li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <p>The app stores your roles and champion pool on your device only. See the <a href="privacy.html">privacy policy</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Questions and reports: <a href="https://github.com/DmitryMarkovnikov/draft-helper-data/issues">GitHub issues</a>.</p>
+
+  <footer>
+    <div class="box">
+      <p>draft-helper isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+    </div>
+    <p class="muted">Data packages are updated each patch. Current package status: <a href="packages/index.json">index.json</a>.</p>
+  </footer>
+</main>
+</body>
+</html>
