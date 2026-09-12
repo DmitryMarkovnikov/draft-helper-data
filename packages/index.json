@@ -1,11 +1,11 @@
 {
   "latest": {
     "euw1/gold": {
-      "package_version": 1,
+      "package_version": 2,
       "patch": "16.18",
-      "sha256": "eb3cdfd44af17bf24e528c5db4fda6fac34a61395c29732836249cf814236e39",
-      "size_bytes": 95499,
-      "url": "packages/euw1/gold/16.18-v1/package.zip"
+      "sha256": "224c1a8485bd0c83b251364e43f572f7650bfbcf1c310578befb8359596f2c28",
+      "size_bytes": 102994,
+      "url": "packages/euw1/gold/16.18-v2/package.zip"
     }
   },
   "schema_version": 1
